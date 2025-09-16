@@ -57,6 +57,3 @@ def present_missing_terms(cv_text:str, jd_text: str, ngram_range: Tuple[int, int
         not_present.append(vocab[i])
     
     return present, not_present
-
-    
-

@@ -1,0 +1,21 @@
+Pranaav — Computer Science MEng (Year 2)
+University projects and coursework focused on software engineering and data.
+
+Skills:
+- Python, Flask, SQL, Git, unit testing
+- Data structures and algorithms
+- HTML/CSS/JavaScript for simple web UIs
+- Linux basics, command line, bash
+- Pandas, NumPy (beginner)
+
+Projects:
+- URL Shortener — Flask + SQLite, SQLAlchemy, pytest; deployed; added basic CI.
+- Notes App — CRUD, authentication, Jinja templates; focus on REST APIs and clean routes.
+- Algo Practice — implemented stacks/queues, binary search, BFS/DFS; unit tests for each.
+
+Experience:
+- Hackathon participant (24h): built a small REST API and front-end demo.
+- Teaching helper: ran Python study group for first-years.
+
+Interests:
+- Building small tools, web backends, learning Docker and cloud deployment next.

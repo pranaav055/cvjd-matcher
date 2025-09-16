@@ -1,0 +1,19 @@
+Data/ML Engineering Intern — Summer 2025
+
+You will work with the data platform and help build analytics features.
+
+Responsibilities:
+- Build data pipelines and ETL jobs
+- Feature extraction and model evaluation
+- Write reproducible Python notebooks and scripts
+
+Requirements:
+- Python, pandas, NumPy, scikit-learn
+- SQL for data extraction and joins
+- Version control with Git
+- Communication and documentation skills
+
+Nice to have:
+- Machine learning fundamentals
+- Docker, cloud deployment, CI/CD
+- Experiment tracking and A/B testing

@@ -1,0 +1,20 @@
+Software Engineering Intern — Summer 2025
+
+We’re looking for a motivated intern to help build internal tools and APIs.
+
+Responsibilities:
+- Implement and test REST APIs
+- Write clean, maintainable Python code
+- Collaborate on code reviews and documentation
+- Help improve monitoring and logging
+
+Requirements:
+- Python, REST APIs, SQL
+- Unit testing and Git
+- Familiarity with Linux
+- Strong communication and problem solving
+
+Nice to have (big plus):
+- Docker, cloud deployment (AWS), CI/CD
+- Redis or PostgreSQL
+- Kubernetes, containerization

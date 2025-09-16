@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>CV ↔ JD Matcher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>CV ↔ JD Matcher</h1>
+  <div class="sub">TF-IDF + Cosine similarity with present/missing terms</div>
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for m in messages %}
+        <div class="flash">{{ m }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+
+  <form method="post">
+    <div class="row">
+      <div>
+        <label for="cv">CV text</label><br/>
+        <textarea id="cv" name="cv" placeholder="Paste your CV (plain text)">{{ (form.cv or '') if form else '' }}</textarea>
+      </div>
+      <div>
+        <label for="jd">Job description</label><br/>
+        <textarea id="jd" name="jd" placeholder="Paste the JD">{{ (form.jd or '') if form else '' }}</textarea>
+      </div>
+    </div>
+
+    <div class="controls">
+      <label for="topk">Top-K terms</label>
+      <input id="topk" name="topk" type="number" min="1" max="50" value="{{ (form.topk or 15) if form else 15 }}" />
+      <label for="ngrams">N-grams</label>
+      <select id="ngrams" name="ngrams">
+        {% set ng = (form.ngrams|int) if form and form.ngrams is not none else 2 %}
+        <option value="1" {% if ng == 1 %}selected{% endif %}>1 (unigrams)</option>
+        <option value="2" {% if ng == 2 %}selected{% endif %}>2 (uni+bi)</option>
+        <option value="3" {% if ng == 3 %}selected{% endif %}>3 (uni+bi+tri)</option>
+      </select>
+      <button type="submit">Match</button>
+    </div>
+  </form>
+
+  {% if result %}
+    <div class="score">
+      <strong>Similarity:</strong> {{ result.similarity }} ({{ result.similarity_pct }}%)
+      <span class="meta">• n-grams ≤ {{ result.ngrams }} • top-k {{ result.topk }}</span>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Present (in both)</h3>
+        <ul>
+          {% for t in result.present %}
+            <li>{{ t }}</li>
+          {% else %}
+            <li><em>None</em></li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Missing (in JD, not in CV)</h3>
+        <ul>
+          {% for t in result.missing %}
+            <li>{{ t }}</li>
+          {% else %}
+            <li><em>None</em></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  {% endif %}
+</body>
+</html>

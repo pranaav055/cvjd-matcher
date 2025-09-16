@@ -19,6 +19,8 @@ def clean_up_features(terms):
             continue
         elif any(c.isdigit() for c in t):
             continue
+        elif len(t) <= 2:
+            continue
         elif t in junk:
             continue
         out.append(t)
@@ -58,7 +60,7 @@ def present_missing_terms(cv_text:str, jd_text: str, ngram_range: Tuple[int, int
      # add the tfidf values of the features which are present in both
     cv_present_values = []
     for i in present_index:
-        cv_present_values.append(cv_vec[i])
+        cv_present_values.append(jd_vec[i])
 
     # add the tfidf values of the features which are not present in both
     jd_not_present_values = []

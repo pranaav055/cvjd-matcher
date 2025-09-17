@@ -2,7 +2,7 @@
 
 Compares CV and Job descriptions to output back:
 - Overall similarity score and percentage
-- 0.0~0.3 - unrelated, 0.04~0.12 - loosely related, 0.13~0.25 - moderately related, 0.26+ - strongly related
+- 0.0 - 0.3: unrelated, 0.04 - 0.12: loosely related, 0.13 - 0.25: moderately related, 0.26+: strongly related
 - Present terms both in CV and JD
 - Missing terms in JD, ranked by importance (TFIDF values in JD vector)
 
